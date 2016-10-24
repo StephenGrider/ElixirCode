@@ -1,3 +1,7 @@
-<%= form_for @changeset, post_path(@conn, :create), fn f -> %>
+<%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+  </div>
 
+  <%= submit "Save Topic", class: "btn btn-primary" %>
 <% end %>
