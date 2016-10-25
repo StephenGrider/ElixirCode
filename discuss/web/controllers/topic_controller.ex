@@ -18,7 +18,10 @@ defmodule Discuss.TopicController do
     changeset = Topic.changeset(%Topic{}, topic)
 
     case Repo.insert(changeset) do
-      {:ok, post} -> IO.inspect(post)
+      {:ok, post} ->
+        conn
+        |> put_flash(:info, "Topic Created")
+        |> redirect(to: topic_path(conn, :index))
       {:error, changeset} ->
         render conn, "new.html", changeset: changeset
     end
