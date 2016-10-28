@@ -1,1 +1,2 @@
 <%= @topic.title %>
+<button>Ping!</button>
