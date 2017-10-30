@@ -1,0 +1,26 @@
+<h2>Listing Topics</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for topic <- @topics do %>
+    <tr>
+      <td><%= topic.title %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: topic_path(@conn, :show, topic), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: topic_path(@conn, :edit, topic), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: topic_path(@conn, :delete, topic), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Topic", to: topic_path(@conn, :new) %></span>
