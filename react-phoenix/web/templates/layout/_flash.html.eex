@@ -1,0 +1,13 @@
+<div class="container">
+  <%= if get_flash(@conn, :info) do %>
+    <div class="card-panel teal lighten-2 white-text">
+      <%= get_flash(@conn, :info) %>
+    </div>
+  <% end %>
+
+  <%= if get_flash(@conn, :error) do %>
+    <div class="card-panel red lighten-2 white-text">
+      <%= get_flash(@conn, :error) %>
+    </div>
+  <% end %>
+</div>

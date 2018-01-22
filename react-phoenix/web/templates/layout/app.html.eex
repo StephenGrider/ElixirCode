@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hello Reddit!</title>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <script>
+      <%= if @conn.assigns.user do %>
+        window.redditToken = "<%= Phoenix.Token.sign(Reddit.Endpoint, "user_socket", @conn.assigns.user.id) %>"
+      <% end %>
+    </script>
+  </head>
+
+  <body>
+    <nav class="light-blue">
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">Logo</a>
+        <ul class="right">
+          <%= if @conn.assigns[:user] do %>
+            <li>
+              <%= link "Logout", to: session_path(@conn, :signout) %>
+            </li>
+          <% else %>
+            <li>
+              <%= link "Sign in with Github", to: session_path(@conn, :request, "github") %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <%= render "_flash.html", conn: @conn %>
+
+    <div class="section">
+      <div class="container">
+        <%= render @view_module, @view_template, assigns %>
+      </div>
+    </div>
+
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>
