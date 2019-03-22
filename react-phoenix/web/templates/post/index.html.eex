@@ -15,7 +15,7 @@
 </ul>
 
 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-  <%= link to: post_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
+  <%= link to: topic_path(@conn, :new), class: "btn-floating btn-large waves-effect waves-light red" do %>
     <i class="material-icons">add</i>
   <% end %>
 </div>
