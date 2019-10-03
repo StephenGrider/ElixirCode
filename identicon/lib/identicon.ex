@@ -50,7 +50,7 @@ defmodule Identicon do
   def build_grid(%Identicon.Image{hex: hex} = image) do
     grid =
       hex
-      |> Enum.chunk(3)
+      |> Enum.chunk_every(3,3,:discard)           # Elixir 1.9 - Enum.chunk/1 superceded. Also required to discard the remaining chunks
       |> Enum.map(&mirror_row/1)
       |> List.flatten
       |> Enum.with_index
