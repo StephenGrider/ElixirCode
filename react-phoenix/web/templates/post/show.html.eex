@@ -1,0 +1,8 @@
+<%= @post.title %>
+<div id="target"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    window.renderCommentsApp('target', <%= @post.id %>) 
+  });
+</script>

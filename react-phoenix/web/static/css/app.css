@@ -1,0 +1,38 @@
+/* This file is for your main application css. */
+
+.has-error {
+  color: red;
+  position: absolute;
+  right: 0px;
+  top: 18px;
+}
+
+.right {
+  display: flex;
+}
+
+.right a {
+  margin-right: 10px;
+}
+
+.notification {
+  position: absolute !important;
+  height: 50px;
+  width: 100px;
+  bottom: 20px;
+  left: 20px;
+  text-align: center;
+}
+
+
+.help-block {
+  color: red;
+  text-transform: capitalize;
+  position: absolute;
+  top: 35px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}

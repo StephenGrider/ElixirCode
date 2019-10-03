@@ -1,0 +1,26 @@
+<h2>Listing Comments</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Content</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for comment <- @comments do %>
+    <tr>
+      <td><%= comment.content %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: comment_path(@conn, :show, comment), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: comment_path(@conn, :edit, comment), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: comment_path(@conn, :delete, comment), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Comment", to: comment_path(@conn, :new) %></span>

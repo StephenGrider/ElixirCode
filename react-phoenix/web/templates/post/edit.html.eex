@@ -1,0 +1,8 @@
+<%= form_for @changeset, post_path(@conn, :update, @post), fn f -> %>
+  <div class="form-group">
+    <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+    <%= error_tag f, :title %>
+  </div>
+
+  <%= submit "Save Post", class: "btn btn-primary" %>
+<%= end %>
